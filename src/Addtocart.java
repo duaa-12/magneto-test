@@ -125,8 +125,9 @@ public class Addtocart {
 	}
           @Test (priority = 4)
 		
-		public void creatsaccount()  {
-	
+		public void creatsaccount() throws InterruptedException  {
+	              Thread.sleep(3000);
+	                String expectedmsg="Thank you alot for registering with Main Website Store.";
 			WebElement crataccount = driver.findElement(By.partialLinkText("Create"));
 			crataccount.click();
 			WebElement firstname = driver.findElement(By.id("firstname"));
@@ -141,5 +142,8 @@ public class Addtocart {
 		    confirmpassword.sendKeys("Duaakhl-1312");
 			WebElement Creatanaccount=driver.findElement(By.xpath("//*[@id=\"form-validate\"]/div/div[1]/button"));
 			Creatanaccount.click();
+			WebElement fullmsg=driver.findElement(By.cssSelector("[data-bind='html: $parent.prepareMessageForHtml(message.text)']"));
+			String actualmsg= fullmsg.getText();
+			assertEquals(expectedmsg, actualmsg);
 }
 }
