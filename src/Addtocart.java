@@ -60,6 +60,11 @@ public class Addtocart {
 			addtoCartButton.click();
 			Thread.sleep(3000);
 		}
+       WebElement Msg =driver.findElement(By.cssSelector("div[data-bind='html: $parent.prepareMessageForHtml(message.text)']"));
+		
+		boolean actual = 	Msg.getText().contains("You added");
+		boolean expected = true ; 
+		assertEquals(actual, expected);
 
 	}
 	
