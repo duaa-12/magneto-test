@@ -109,11 +109,32 @@ public class Addtocart {
 		nextButton.click();
 		
 		Select select = new Select(Country);
-		
-//		select.selectByValue("CN");
-//		select.selectByIndex(1);
+
 		select.selectByVisibleText("Jordan");
+		Thread.sleep(3000);
+		WebElement next = driver.findElement(By.cssSelector(".button.action.continue.primary"));
+		next.click();
+		Thread.sleep(4000);
+		WebElement placeorder = driver.findElement(By.cssSelector(".action.primary.checkout"));
+		placeorder.click();
 	}
-
+          @Test (priority = 4)
+		
+		public void creatsaccount()  {
+	
+			WebElement crataccount = driver.findElement(By.partialLinkText("Create"));
+			crataccount.click();
+			WebElement firstname = driver.findElement(By.id("firstname"));
+			firstname.sendKeys("du");
+			WebElement lastname = driver.findElement(By.id("lastname"));
+			lastname.sendKeys("kh");
+			WebElement email1 = driver.findElement(By.id("email_address"));
+			email1.sendKeys("kherfanduaa123@yahoo.com");
+			WebElement password=driver.findElement(By.id("password"));
+			password.sendKeys("Duaakhl-1312");
+			WebElement confirmpassword=driver.findElement(By.id("password-confirmation"));
+		    confirmpassword.sendKeys("Duaakhl-1312");
+			WebElement Creatanaccount=driver.findElement(By.xpath("//*[@id=\"form-validate\"]/div/div[1]/button"));
+			Creatanaccount.click();
 }
-
+}
